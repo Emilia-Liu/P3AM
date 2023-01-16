@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Margot's Closet</title>
+  <link rel="icon" type="imagem/png" href="/img/icon-01.png" />
+  <link rel="stylesheet" href="css/style.css"/>
+  <meta name="description" content="Margot's Closet">
+  <script src="afreme-master.js"></script>
+
+  <script>
+    for(let i=1; i<10; i++) {
+      AFRAME.registerComponent('play-pause'+i, {
+        init: function () {
+          var myVideo = document.querySelector('#animacao'+i);
+          var videoControls = document.querySelector('#videoControls');
+          this.el.addEventListener('click', function () {
+            if (myVideo.paused) {
+              myVideo.play();
+              videoControls.setAttribute('src', '#pause');
+            } else {
+              myVideo.pause();
+              videoControls.setAttribute('src', '#play');
+            }
+          });
+        }
+      });
+    }
+  </script>
+
+</head>
+
+<body>
+
+<div class="splash">
+  <h1 class='intro fade-in' style="font-size: 28pt; color: #F8C923"> All Summer</h1>
+  <h1 class='intro fade-in' style="top: 8%; color: #416794">in a closet</h1>
+  <video class="ajuste" autoplay muted>
+    <source src="video/armaa.mp4" type="video/mp4">
+  </video>
+
+</div>
+
+<!--MENU -->
+<nav role="navigation">
+<div id="menuToggle">
+    <input type="checkbox"/>
+    <span></span>
+    <span></span>
+    <span></span>
+    <ul id="menu">
+      <a onclick="aparece('.resumo')"><li>Summary of the story</li></a>
+      <a onclick="aparece('.info')"><li>Info</li></a>
+      <a onclick="aparece('.autor')"><li>Author</li></a>
+    </ul>
+  </div>
+</nav>
+
+<div class="batatas hide">
+  <div class="resumo hide">
+    <div class="cruz" onclick="apaga('.resumo')">
+    <span class="s x0"></span>
+    <span class="s x1"></span>
+    </div>
+
+    <div class="texto">
+      <h2>Summary of the story</h2>
+      <div class="intexto">
+      <p>In a futuristic scenario, there are human beings living on Venus.</p>
+      <p>The children who have lived there since they were born have never seen the sun.</p>
+      <p>On Venus it rains for seven years and the sun only appears for two hours.</p>
+      <p>Margot is a different child. Unlike the others, she has lived on planet Earth for five years and remembers the sun. Whenever Margot records the sun and the sensations it brings her, the other children accuse her of lying.</p>
+      <p>Until the day comes when the sun appears again. The children, jealous, lock Margot in the closet. Meanwhile it stops raining and the sun comes out.</p>
+      <p>Two hours later it starts raining again. At that moment they remember Margot locked in the closet.</p>
+    </div>
+    </div>
+
+  </div>
+
+  <div class="info hide">
+    <div class="cruz" onclick="apaga('.info')">
+      <span class="s x0"></span>
+      <span class="s x1"></span>
+    </div>
+
+    <div class="texto">
+      <h2>Info</h2>
+      <div class="intexto">
+        <p>You are experiencing the moment when Margot is trapped in the closet.</p>
+        <p>In the midst of this darkness her memories live in videos.</p>
+        <p>To discover them, press the white dot over the various play buttons!</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="autor hide">
+    <div class="cruz" onclick="apaga('.autor')">
+      <span class="s x0"></span>
+      <span class="s x1"></span>
+    </div>
+
+    <div class="texto">
+      <h2>About the author</h2>
+      <div class="intexto">
+        <p>Ray Douglas Bradbury was an American author and screenwriter.</p>
+        <p>One of the most celebrated American writers of the 20th century, he worked in a variety of modes, including fantasy, science fiction, horror, mystery, and realistic fiction.</p>
+        <p>Ray Bradbury was born on August 22, 1920 in Waukegan, Illinois.
+          He began his career in writing at the age of 12. His first publication in 1936 is the poem "In memory of Villa Rogers".</p>
+        <p>In 1937, Bradbury joined the "Science Fiction League" of Los Angeles.
+          In 1939-1940 he published the mimeograph magazine Futuria Fantasy.</p>
+        <p>Bradbury wrote eleven novels, the most popular of which were the first: Martian Chronicles (1950), 451 Degrees Fahrenheit (1953) and Dandelion Wine (1957).
+          The writer has also created 21 plays and 28 film scripts.</p>
+        <p>Between 1985 and 1992, Ray Bradbury authored and hosted a television series of 65 mini-films based on his stories.</p>
+        <p>Bradbury has received many awards in the field of literature and art in general. He died on June 5, 2012 in Los Angeles at the age of 91.</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<a-scene>
+  <a-sky src="/img/armario-01.jpg" ></a-sky>
+
+  <a-assets>
+    <img id="play" src="img/play.png">
+    <img id="pause" src="/img/pause.png">
+    <video id="animacao1" src="video/animation1.mp4" loop="true"></video>
+    <video id="animacao2" src="video/animation2.mp4" loop="true"></video>
+    <video id="animacao3" src="video/animation3.mp4" loop="true"></video>
+    <video id="animacao4" src="video/animation4.mp4" loop="true"></video>
+    <video id="animacao5" src="video/animation5.mp4" loop="true"></video>
+    <video id="animacao6" src="video/animation6.mp4" loop="true"></video>
+    <video id="animacao7" src="video/animation7.mp4" loop="true"></video>
+    <video id="animacao8" src="video/animation8.mp4" loop="true"></video>
+    <video id="animacao9" src="video/animation9.mp4" loop="true"></video>
+  </a-assets>
+
+  <a-camera>
+    <a-entity cursor position="0 0 -1"
+              geometry="primitive: sphere; radius:0.010;"
+              material="color: #ffffff; shader: flat; opacity: 0.5">
+    </a-entity>
+    </a-camera>
+
+  <!--<a-scene>
+    <a-box color="blue"
+            width ="0.2"
+            height="0.2"
+            depth="0.2"
+            position="0 1.9 0"
+            rotation="45 0 0">
+
+    </a-box>
+  </a-scene>-->
+
+  <a-video src="#animacao1" width="4.5" height="4.5" position="0 3 -9" rotation="0 0 0"></a-video>
+  <a-image id="videoControls" src="#play" position="0 0.5 -9"  rotation="0 0 0" scale="0.5 0.5 1" play-pause1></a-image>
+  <!--<a-entity position="0 0.5 -9" text=" width: 6.5; color: white; value: ANIMATION 1"></a-entity>-->
+
+  <a-video src="#animacao2" width="4.5" height="4.5" position="0 9 -9" rotation="0 0 0"></a-video>
+  <a-image id="videoControls" src="#play" position="0 6.4 -9"  rotation="0 0 0" scale="0.5 0.5 1" play-pause2></a-image>
+  <!--<a-entity position="0 6.5 -9" text=" width: 6.5; color: white; value: ANIMATION 2"></a-entity>-->
+
+  <a-video src="#animacao3" width="22" height="22" position="35 20 0" rotation="0 -90 0"></a-video>
+  <a-image id="videoControls" src="#play" position="35 8 0"  rotation="0 -90 0" scale="2 2 1" play-pause3></a-image>
+  <!-- <a-entity position="35 8 0" rotation="0 -80 0" text=" width: 20.5; color: white; value: ANIMATION 3"></a-entity>-->
+
+  <a-video src="#animacao4" width="22" height="22" position="35 -10 0" rotation="0 -90 0"></a-video>
+  <a-image id="videoControls" src="#play" position="35 -22.4 0"  rotation="0 -90 0" scale="2 2 1" play-pause4></a-image>
+  <!--<a-entity position="35 -22.6 0" rotation="0 -80 0" text=" width: 20.5; color: white; value: ANIMATION 4"></a-entity>-->
+
+  <a-video src="#animacao5" width="22" height="22" position="-35 20 0" rotation="0 90 0"></a-video>
+  <a-image id="videoControls" src="#play" position="-35 8 0"  rotation="0 90 0" scale="2 2 1" play-pause5></a-image>
+<!--  <a-entity position="-35 8 0" rotation="0 80 0" text=" width: 20.5; color: white; value: ANIMATION 5"></a-entity>-->
+
+  <a-video src="#animacao6" width="22" height="22" position="-35 -10 0" rotation="0 90 0"></a-video>
+  <a-image id="videoControls" src="#play" position="-35 -22.4 0"  rotation="0 90 0" scale="2 2 1" play-pause6></a-image>
+<!--  <a-entity position="-35 -22.6 0" rotation="0 80 0" text=" width: 20.5; color: white; value: ANIMATION 6"></a-entity>-->
+
+  <a-video src="#animacao7" width="4.5" height="4.5" position="0 5 9" rotation="0 -180 0"></a-video>
+  <a-image id="videoControls" src="#play" position="0 2.4 9"  rotation="0 -180 0" scale="0.5 0.5 1" play-pause7></a-image>
+ <!-- <a-entity position="0 2.6 9" rotation="0 -180 0" text=" width: 6.5; color: white; value: ANIMATION 7"></a-entity>-->
+
+  <a-video src="#animacao8" width="4.5" height="4.5" position="0 -1 9" rotation="0 -180 0"></a-video>
+  <a-image id="videoControls" src="#play" position="0 -3.6 9"  rotation="0 -180 0" scale="0.5 0.5 1" play-pause8></a-image>
+ <!-- <a-entity position="0 -3.8 9" rotation="0 -180 0" text=" width: 6.5; color: white; value: ANIMATION 8"></a-entity>-->
+
+  <a-video src="#animacao9" width="4.5" height="4.5" position="0 -3 -9" rotation="0 0 0"></a-video>
+  <a-image id="videoControls" src="#play" position="0 -5.5 -9"  rotation="0 0 0" scale="0.5 0.5 1" play-pause9></a-image>
+
+  <a-text font="kelsonsans" value="Now you are Margot, and you are closed in this wardrobe.
+Explore your memory throught the videos.
+To do so, place the white dot over the play icon." wrapCount="60" opacity="0.50" width="2.5"  position="-0 -0.5 1.2" rotation="-90 0 90" ></a-text>
+
+</a-scene>
+
+<script src="interacoes_menu.js"></script>
+</body>
+</html>
